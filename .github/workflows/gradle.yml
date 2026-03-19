@@ -1,15 +1,15 @@
-name: Build on Action-build Branch
+name: Build
 
 on:
   push:
     branches:
-      - Action-build
+      - forge/1.20.1-build
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Action-build branch
+      - name: Checkout forge/1.20.1 branch
         uses: actions/checkout@v6
 
       - name: Set up Java 17

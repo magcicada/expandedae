@@ -41,7 +41,7 @@ public abstract class MixinProcessingEncodingPanel extends EncodingModePanel {
         super(screen, widgets);
     }
 
-    @Inject(method = "<init>", at = @At("TAIL"), remap = false)
+    @Inject(method = "<init>", at = @At("RETURN"), remap = false)
     private void init(PatternEncodingTermScreen<?> screen, WidgetContainer widgets, CallbackInfo ci) {
         eae$x2 = GuardedWidget.guardedWidget("mult2", ((AccessorScreenStyle) screen.getStyle()).getWidgets(),
                         id -> new ModifyIconButton(b -> ((IPatternEncodingTerminalMenu) menu).eae$ModifyPattern(2),

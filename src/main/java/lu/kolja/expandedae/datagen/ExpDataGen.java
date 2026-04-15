@@ -14,10 +14,12 @@ public class ExpDataGen {
         var gen = event.getGenerator();
         var out = gen.getPackOutput();
         var existing = event.getExistingFileHelper();
+        var lookup = event.getLookupProvider();
 
         gen.addProvider(event.includeClient(), new ExpLangProvider(out));
         gen.addProvider(event.includeClient(), new ExpModelProvider(out, existing));
         gen.addProvider(event.includeClient(), new ExpItemModelProvider(out, existing));
+        gen.addProvider(event.includeServer(), new ExpBlockTagsProvider(out, lookup, existing));
         gen.addProvider(event.includeServer(), new ExpRecipeProvider(out));
         gen.addProvider(event.includeServer(), new ExpLootProvider(out));
     }

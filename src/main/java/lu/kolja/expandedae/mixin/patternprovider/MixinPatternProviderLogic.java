@@ -166,10 +166,12 @@ public abstract class MixinPatternProviderLogic implements IUpgradeableObject, I
 
     @Inject(
             method = "pushPattern",
-            at = @At("HEAD")
+            at = @At("RETURN")
     )
     private void expandedae$onPushPatternSuccess(IPatternDetails patternDetails, KeyCounter[] inputHolder, CallbackInfoReturnable<Boolean> cir) {
-        expandedae$tryAutoCompleteCraft(patternDetails);
+        if (cir.getReturnValue()) {
+            expandedae$tryAutoCompleteCraft(patternDetails);
+        }
     }
 
     @Unique

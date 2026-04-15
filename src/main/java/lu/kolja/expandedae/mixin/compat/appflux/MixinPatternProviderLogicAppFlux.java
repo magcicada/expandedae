@@ -103,10 +103,12 @@ public abstract class MixinPatternProviderLogicAppFlux implements IUpgradeableOb
 
     @Inject(
             method = "pushPattern",
-            at = @At("HEAD")
+            at = @At("RETURN")
     )
     private void expandedae$onPushPatternSuccess(IPatternDetails patternDetails, KeyCounter[] inputHolder, CallbackInfoReturnable<Boolean> cir) {
-        expandedae$tryAutoCompleteCraft(patternDetails);
+        if (cir.getReturnValue()) {
+            expandedae$tryAutoCompleteCraft(patternDetails);
+        }
     }
 
     @Unique

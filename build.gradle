@@ -95,7 +95,7 @@ file(extraModsDir).mkdir()
 
 repositories {
     mavenLocal()
-        maven {
+    maven {
         name = "AE2GitHubPackages"
         url = uri("https://maven.pkg.github.com/AppliedEnergistics/Applied-Energistics-2")
 
@@ -103,6 +103,7 @@ repositories {
             username = System.getenv("GITHUB_ACTOR")
             password = System.getenv("GITHUB_TOKEN")
         }
+    }
     maven {
         url "https://cursemaven.com"
         content {

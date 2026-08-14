@@ -3,7 +3,7 @@ package lu.kolja.expandedae.mixin.crafting;
 import appeng.menu.ISubMenu;
 import appeng.menu.me.crafting.CraftingCPUMenu;
 import appeng.menu.me.crafting.CraftingStatusMenu;
-import lu.kolja.expandedae.helper.misc.ICancellable;
+import lu.kolja.expandedae.api.misc.ICancellable;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
 import org.spongepowered.asm.mixin.Mixin;

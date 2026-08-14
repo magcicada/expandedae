@@ -8,7 +8,7 @@ import appeng.core.AEConfig;
 import appeng.core.localization.GuiText;
 import appeng.core.localization.Tooltips;
 import appeng.items.storage.StorageCellTooltipComponent;
-import lu.kolja.expandedae.helper.misc.NumberUtil;
+import lu.kolja.expandedae.api.misc.NumberUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;

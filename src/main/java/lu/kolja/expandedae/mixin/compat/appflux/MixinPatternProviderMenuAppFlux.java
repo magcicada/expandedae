@@ -6,12 +6,13 @@ import appeng.menu.AEBaseMenu;
 import appeng.menu.SlotSemantics;
 import appeng.menu.guisync.GuiSync;
 import appeng.menu.implementations.PatternProviderMenu;
+import lu.kolja.expandedae.api.base.IUpgradableMenu;
+import lu.kolja.expandedae.api.misc.PatternHelper;
+import lu.kolja.expandedae.api.patternprovider.IPatternProvider;
 import lu.kolja.expandedae.definition.ExpSemantics;
 import lu.kolja.expandedae.definition.ExpSettings;
 import lu.kolja.expandedae.enums.BlockingMode;
-import lu.kolja.expandedae.helper.base.IUpgradableMenu;
-import lu.kolja.expandedae.helper.misc.PatternHelper;
-import lu.kolja.expandedae.helper.patternprovider.IPatternProvider;
+import lu.kolja.mixinloadconditions.LoadCondition;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
 import org.spongepowered.asm.mixin.Final;
@@ -22,6 +23,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@LoadCondition(loadIfAny = {"appflux", "pccard"})
 @Mixin(value = PatternProviderMenu.class, remap = false)
 public abstract class MixinPatternProviderMenuAppFlux extends AEBaseMenu implements IUpgradableMenu, IPatternProvider {
     @Shadow(remap = false) @Final protected PatternProviderLogic logic;

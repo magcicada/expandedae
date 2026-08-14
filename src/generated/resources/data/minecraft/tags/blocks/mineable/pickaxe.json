@@ -4,6 +4,7 @@
     "expandedae:exp_io_port",
     "expandedae:exp_energy_cell",
     "expandedae:giga_pattern_provider",
+    "expandedae:singularity_crafting_storage",
     "expandedae:exp_crafting_unit",
     "expandedae:exp_crafting_accelerator_2",
     "expandedae:exp_crafting_accelerator_4",

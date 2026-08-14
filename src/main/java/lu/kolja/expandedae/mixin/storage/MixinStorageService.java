@@ -7,7 +7,7 @@ import appeng.api.storage.MEStorage;
 import appeng.me.service.StorageService;
 import appeng.parts.AEBasePart;
 import lu.kolja.expandedae.Expandedae;
-import lu.kolja.expandedae.helper.misc.IStorageLocations;
+import lu.kolja.expandedae.api.misc.IStorageLocations;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Final;

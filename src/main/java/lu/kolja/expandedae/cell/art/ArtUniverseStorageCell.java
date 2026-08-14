@@ -67,7 +67,7 @@ public class ArtUniverseStorageCell extends AEBaseItem implements IArtUniverseCe
     }
 
     @Override
-    public int getTotalTypes(ItemStack cellItem) {
+    public long getTotalTypes(ItemStack cellItem) {
         return totalTypes;
     }
 

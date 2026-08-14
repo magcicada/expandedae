@@ -81,7 +81,13 @@ public enum ExpLang implements LocalizationEnum {
 
     // Hotkeys
     CATEGORY("key.categories.expandedae", "Expanded AE"),
-    KEY_HIGHLIGHT("key.expandedae.highlight", "Highlight Stored Locations");
+    KEY_HIGHLIGHT("key.expandedae.highlight", "Highlight Stored Locations"),
+
+    // set name in encoding terminal
+    CTRL_MIDDLE_CLICK("gui.tooltips.expandedae.ctrlMiddleClick", "Ctrl + Middle-Click"),
+    MODIFY_NAME("gui.tooltips.expandedae.modifyName", "%s: Modify Name"),
+    SET_NAME("gui.tooltips.expandedae.setName", "Set Name"),
+    ;
 
     private final String key;
     private final String text;

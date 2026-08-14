@@ -5,9 +5,9 @@ import appeng.api.stacks.AEKey;
 import appeng.me.service.StorageService;
 import appeng.menu.AEBaseMenu;
 import appeng.menu.me.common.MEStorageMenu;
+import lu.kolja.expandedae.api.cpu.IHighlightMenu;
+import lu.kolja.expandedae.api.misc.IStorageLocations;
 import lu.kolja.expandedae.definition.ExpLang;
-import lu.kolja.expandedae.helper.cpu.IHighlightMenu;
-import lu.kolja.expandedae.helper.misc.IStorageLocations;
 import lu.kolja.expandedae.highlight.BlockHighlightHandler;
 import lu.kolja.expandedae.network.ExpNetworkHandler;
 import lu.kolja.expandedae.network.implementations.HighlightDataPacket;
@@ -52,7 +52,7 @@ public abstract class MixinMEStorageMenu extends AEBaseMenu implements IHighligh
         this.getPlayer().sendSystemMessage(ExpLang.HIGHLIGHTING_STORAGE.text(what.getDisplayName()));
         for (var pos : positions) {
             var packet = new HighlightDataPacket(pos, dim, BlockHighlightHandler.getTime(pos, this.getPlayer().getOnPos()));
-            ExpNetworkHandler.HANDLER.sendToClient(packet, (ServerPlayer) getPlayer());
+            ExpNetworkHandler.HANDLER.sendToClient(packet, getPlayer());
         }
     }
 }

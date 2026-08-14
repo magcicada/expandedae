@@ -68,6 +68,11 @@ legacyForge {
             programArguments.addAll('--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath())
             programArguments.addAll('--existing-mod', 'ae2')
         }
+
+        gametestWorld {
+            client()
+            programArguments.addAll("--quickPlaySingleplayer", "New World")
+        }
     }
     mods {
         "${mod_id}" {
@@ -140,6 +145,10 @@ repositories {
         name "extra-mods"
         dir file(extraModsDir)
     }
+    maven {
+        name = "expandium"
+        url = "https://repo.expandium.net/releases"
+    }
 }
 
 dependencies {
@@ -199,7 +208,8 @@ dependencies {
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.4.1"))
     compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.6-beta.1"))
     implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.6-beta.1"))
-    implementation "dev.vfyjxf:mixin-hotswap-agent:1.1"
+    compileOnly(annotationProcessor("lu.kolja:mixinloadconditions:0.1.2"))
+    implementation(jarJar("lu.kolja:mixinloadconditions:0.1.2"))
 }
 
 

@@ -1,0 +1,11 @@
+package lu.kolja.expandedae.api.patternprovider;
+
+import lu.kolja.expandedae.enums.BlockingMode;
+
+public interface IPatternProvider {
+    void expandedae$modifyPatterns(Integer mult);
+
+    BlockingMode expandedae$getBlockingMode();
+
+    void setBlockingMode(BlockingMode blockingMode);
+}

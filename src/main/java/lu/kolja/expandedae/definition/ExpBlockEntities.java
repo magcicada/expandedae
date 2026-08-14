@@ -52,6 +52,7 @@ public class ExpBlockEntities {
             "exp_cpus",
             CraftingBlockEntity.class,
             CraftingBlockEntity::new,
+            ExpBlocks.SINGULARITY_CRAFTING_STORAGE,
             ExpBlocks.EXP_CRAFTING_UNIT,
             ExpBlocks.CPU_2,
             ExpBlocks.CPU_4,

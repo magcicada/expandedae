@@ -2,12 +2,10 @@ package lu.kolja.expandedae.menu;
 
 import appeng.helpers.patternprovider.PatternProviderLogicHost;
 import appeng.menu.guisync.GuiSync;
-import appeng.menu.implementations.MenuTypeBuilder;
 import appeng.menu.implementations.PatternProviderMenu;
+import lu.kolja.expandedae.api.patternprovider.ISpecialSlots;
 import lu.kolja.expandedae.definition.ExpMenus;
-import lu.kolja.expandedae.helper.patternprovider.ISpecialSlots;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
 
 public class GigaPatternProviderMenu extends PatternProviderMenu {

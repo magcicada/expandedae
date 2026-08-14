@@ -3,6 +3,8 @@ package lu.kolja.expandedae.network;
 import lu.kolja.expandedae.Expandedae;
 import lu.kolja.expandedae.network.implementations.HighlightDataPacket;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -12,6 +14,7 @@ import java.util.function.Supplier;
 
 public class ExpNetworkHandler {
     private static final String PROTOCOL_VERSION = "1";
+    private static int id = 0;
 
     public static final ExpNetworkHandler HANDLER = new ExpNetworkHandler();
     private static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
@@ -21,8 +24,8 @@ public class ExpNetworkHandler {
             PROTOCOL_VERSION::equals
     );
 
-    public <MSG> void sendToClient(MSG message, ServerPlayer player) {
-        INSTANCE.sendTo(message, player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
+    public <MSG> void sendToClient(MSG message, Player player) {
+        INSTANCE.sendTo(message, ((ServerPlayer) player).connection.connection, NetworkDirection.PLAY_TO_CLIENT);
     }
 
     public <MSG> void sendToServer(MSG message) {
@@ -47,12 +50,12 @@ public class ExpNetworkHandler {
             T instance = factory.get();
 
             INSTANCE.registerMessage(
-                    info.id(),
+                    id++,
                     clazz,
                     instance::encode,
                     instance::decode,
                     instance::handle,
-                    Optional.of(info.direction())
+                    Optional.of(info.value())
             );
         } catch (Exception e) {
             throw new RuntimeException("Failed to register packet: " + clazz.getName(), e);

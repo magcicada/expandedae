@@ -10,13 +10,14 @@ import appeng.client.gui.widgets.UpgradesPanel;
 import appeng.core.localization.GuiText;
 import appeng.menu.SlotSemantics;
 import appeng.menu.implementations.PatternProviderMenu;
+import lu.kolja.expandedae.api.base.IUpgradableMenu;
+import lu.kolja.expandedae.api.misc.KeybindUtil;
+import lu.kolja.expandedae.api.patternprovider.IPatternProvider;
 import lu.kolja.expandedae.client.gui.widgets.ExpActionButton;
 import lu.kolja.expandedae.client.gui.widgets.ExpActionItems;
 import lu.kolja.expandedae.definition.ExpSettings;
 import lu.kolja.expandedae.enums.BlockingMode;
-import lu.kolja.expandedae.helper.base.IUpgradableMenu;
-import lu.kolja.expandedae.helper.misc.KeybindUtil;
-import lu.kolja.expandedae.helper.patternprovider.IPatternProvider;
+import lu.kolja.mixinloadconditions.LoadCondition;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,6 +29,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.ArrayList;
 import java.util.List;
 
+@LoadCondition(ignoreIfAny = {"appflux", "pccard"})
 @Mixin(value = PatternProviderScreen.class, remap = false)
 public abstract class MixinPatternProviderScreen<C extends PatternProviderMenu> extends AEBaseScreen<C> {
 

@@ -42,7 +42,7 @@ public class ArtUniverseCellInventory implements StorageCell {
     private final IPartitionList partitionList;
     @Getter
     private final IncludeExclude partitionListMode;
-    private int maxItemTypes;
+    private long maxItemTypes;
     private short storedItems;
     @Getter
     private long storedItemCount;

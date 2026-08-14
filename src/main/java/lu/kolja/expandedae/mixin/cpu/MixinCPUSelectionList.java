@@ -2,12 +2,18 @@ package lu.kolja.expandedae.mixin.cpu;
 
 import appeng.client.Point;
 import appeng.client.gui.widgets.CPUSelectionList;
+import appeng.core.localization.ButtonToolTips;
+import appeng.core.localization.Tooltips;
 import appeng.menu.me.crafting.CraftingStatusMenu;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-import lu.kolja.expandedae.helper.cpu.ISearchScreen;
-import lu.kolja.expandedae.helper.misc.NumberUtil;
+import lu.kolja.expandedae.api.cpu.ISearchScreen;
+import lu.kolja.expandedae.api.misc.NumberUtil;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -44,5 +50,21 @@ public class MixinCPUSelectionList {
         if (!cir.getReturnValue()) return;
         assert Minecraft.getInstance().screen != null;
         ((ISearchScreen) Minecraft.getInstance().screen).eae$clearSearch();
+    }
+
+    @WrapOperation(
+            method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lappeng/core/localization/Tooltips;ofBytes(J)Lnet/minecraft/network/chat/MutableComponent;",
+                    ordinal = 0
+            )
+    )
+    private MutableComponent eae$getTooltip(long number, Operation<MutableComponent> original, @Local(name = "cpu") CraftingStatusMenu.CraftingCpuListEntry cpu) {
+        var storage = cpu.storage();
+        if (storage < 1024 * 1024 * 1024L) {
+            return original.call(number);
+        }
+        return Component.literal(NumberUtil.formatNum(storage) + "B").withStyle(Tooltips.NUMBER_TEXT);
     }
 }

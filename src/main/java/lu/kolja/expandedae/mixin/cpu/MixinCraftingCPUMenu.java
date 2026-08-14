@@ -5,9 +5,9 @@ import appeng.api.stacks.AEKey;
 import appeng.me.service.CraftingService;
 import appeng.menu.AEBaseMenu;
 import appeng.menu.me.crafting.CraftingCPUMenu;
+import lu.kolja.expandedae.api.cpu.IHighlightMenu;
+import lu.kolja.expandedae.api.patternprovider.IHighlightable;
 import lu.kolja.expandedae.definition.ExpLang;
-import lu.kolja.expandedae.helper.cpu.IHighlightMenu;
-import lu.kolja.expandedae.helper.patternprovider.IHighlightable;
 import lu.kolja.expandedae.highlight.BlockHighlightHandler;
 import lu.kolja.expandedae.network.ExpNetworkHandler;
 import lu.kolja.expandedae.network.implementations.HighlightDataPacket;
@@ -65,7 +65,7 @@ public abstract class MixinCraftingCPUMenu extends AEBaseMenu implements IHighli
                             be.getLevel().dimension(),
                             BlockHighlightHandler.getTime(be.getBlockPos(), this.getPlayer().getOnPos())
                     );
-                    ExpNetworkHandler.HANDLER.sendToClient(packet, (ServerPlayer) this.getPlayer());
+                    ExpNetworkHandler.HANDLER.sendToClient(packet, this.getPlayer());
                 }
             }
         }

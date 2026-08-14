@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.Map;
 
-@Mixin(BuiltInModelHooks.class)
+@Mixin(value = BuiltInModelHooks.class, remap = false)
 public interface AccessorBuiltInModelHooks {
     @Accessor(value = "builtInModels", remap = false)
     static Map<ResourceLocation, UnbakedModel> getBuiltInModels() {

@@ -15,16 +15,17 @@ import appeng.helpers.patternprovider.PatternProviderTarget;
 import appeng.me.cluster.implementations.CraftingCPUCluster;
 import appeng.util.ConfigManager;
 import com.llamalad7.mixinextras.sugar.Local;
+import lu.kolja.expandedae.api.patternprovider.IHighlightable;
+import lu.kolja.expandedae.api.patternprovider.IPatternProviderLogic;
+import lu.kolja.expandedae.api.patternprovider.PatternProviderTargetCache;
 import lu.kolja.expandedae.definition.ExpItems;
 import lu.kolja.expandedae.definition.ExpSettings;
 import lu.kolja.expandedae.enums.Addons;
 import lu.kolja.expandedae.enums.BlockingMode;
-import lu.kolja.expandedae.helper.patternprovider.IHighlightable;
-import lu.kolja.expandedae.helper.patternprovider.IPatternProviderLogic;
-import lu.kolja.expandedae.helper.patternprovider.PatternProviderTargetCache;
 import lu.kolja.expandedae.mixin.accessor.AccessorCraftingCpuLogic;
 import lu.kolja.expandedae.mixin.accessor.AccessorExecutingCraftingJob;
 import lu.kolja.expandedae.xmod.advancedae.AdvancedAE;
+import lu.kolja.mixinloadconditions.LoadCondition;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -46,6 +47,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@LoadCondition(ignoreIfAny = {"appflux", "pccard"})
 @Mixin(value = PatternProviderLogic.class, remap = false, priority = 1001)
 public abstract class MixinPatternProviderLogic implements IUpgradeableObject, IPatternProviderLogic, IHighlightable {
     @Unique

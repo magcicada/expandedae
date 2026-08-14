@@ -14,7 +14,6 @@ import lu.kolja.expandedae.Expandedae;
 import lu.kolja.expandedae.block.block.GigaPatternProviderBlock;
 import lu.kolja.expandedae.definition.ExpItems;
 import lu.kolja.expandedae.definition.ExpMenus;
-import lu.kolja.expandedae.menu.GigaPatternProviderMenu;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

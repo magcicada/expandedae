@@ -32,6 +32,7 @@ public class ExpCraftingUnitModelProvider extends AbstractCraftingUnitModelProvi
     protected static final Material RING_SIDE_HOR = texture("ring_side_hor");
     protected static final Material RING_SIDE_VER = texture("ring_side_ver");
     protected static final Material LIGHT_BASE = texture("light_base");
+    protected static final Material SINGULARITY_LIGHT = texture("singularity_crafting_storage_light");
     protected static final Material UNIT_BASE = texture("unit_base");
     protected static final Material CPU_2_LIGHT = texture("exp_crafting_accelerator_2_light");
     protected static final Material CPU_4_LIGHT = texture("exp_crafting_accelerator_4_light");
@@ -65,6 +66,7 @@ public class ExpCraftingUnitModelProvider extends AbstractCraftingUnitModelProvi
 
     public TextureAtlasSprite getLightMaterial(Function<Material, TextureAtlasSprite> textureGetter) {
         return switch (type) {
+            case SINGULARITY_STORAGE -> textureGetter.apply(SINGULARITY_LIGHT);
             case TIER_2 -> textureGetter.apply(CPU_2_LIGHT);
             case TIER_4 -> textureGetter.apply(CPU_4_LIGHT);
             case TIER_8 -> textureGetter.apply(CPU_8_LIGHT);

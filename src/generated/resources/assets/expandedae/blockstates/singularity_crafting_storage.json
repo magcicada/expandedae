@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "formed=false": {
+      "model": "expandedae:block/crafting/singularity_crafting_storage"
+    },
+    "formed=true": {
+      "model": "expandedae:block/crafting/singularity_crafting_storage_formed"
+    }
+  }
+}

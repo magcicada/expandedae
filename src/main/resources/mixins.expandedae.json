@@ -3,7 +3,6 @@
   "minVersion": "0.8",
   "package": "lu.kolja.expandedae.mixin",
   "compatibilityLevel": "JAVA_17",
-  "plugin": "lu.kolja.expandedae.mixin.MixinPlugin",
   "refmap": "mixins.expandedae.refmap.json",
   "mixins": [
     "accessor.AccessorCraftingCpuLogic",
@@ -22,8 +21,8 @@
     "cpu.MixinCraftingCPUMenu",
     "crafting.MixinCraftingStatusMenu",
     "crafting.MixinCraftingStatusTableRenderer",
-    "emi.MixinEmiItemStackConverter",
-    "emi.MixinEmiScreenBase",
+    "compat.emi.MixinEmiItemStackConverter",
+    "compat.emi.MixinEmiScreenBase",
     "misc.MixinControllerValidator",
     "misc.MixinMathExpressionParser",
     "misc.MixinSettings",

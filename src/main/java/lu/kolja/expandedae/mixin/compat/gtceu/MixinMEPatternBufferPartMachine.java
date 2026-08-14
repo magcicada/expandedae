@@ -13,11 +13,12 @@ import com.gregtechceu.gtceu.integration.ae2.machine.MEBusPartMachine;
 import com.gregtechceu.gtceu.integration.ae2.machine.MEPatternBufferPartMachine;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.lowdragmc.lowdraglib.gui.texture.GuiTextureGroup;
+import lu.kolja.expandedae.api.misc.KeybindUtil;
+import lu.kolja.expandedae.api.misc.PatternHelper;
+import lu.kolja.expandedae.api.patternprovider.IHighlightable;
 import lu.kolja.expandedae.definition.ExpLang;
-import lu.kolja.expandedae.helper.misc.KeybindUtil;
-import lu.kolja.expandedae.helper.misc.PatternHelper;
-import lu.kolja.expandedae.helper.patternprovider.IHighlightable;
 import lu.kolja.expandedae.xmod.gtceu.ExpGtceu;
+import lu.kolja.mixinloadconditions.LoadCondition;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,6 +29,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
+@LoadCondition(loadIf = "gtceu")
 @Mixin(value = MEPatternBufferPartMachine.class, remap = false)
 public abstract class MixinMEPatternBufferPartMachine extends MEBusPartMachine implements ICraftingProvider, PatternContainer, IDataStickInteractable, IHighlightable {
 

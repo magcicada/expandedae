@@ -51,6 +51,12 @@ public class ExpBlocks {
             AEBaseBlockItem::new
     );
 
+    public static final BlockDefinition<CraftingUnitBlock> SINGULARITY_CRAFTING_STORAGE = block(
+            "Singularity Crafting Storage",
+            "singularity_crafting_storage",
+            () -> new CraftingUnitBlock(ExpTiers.SINGULARITY_STORAGE),
+            AEBaseBlockItem::new
+    );
     public static final BlockDefinition<CraftingUnitBlock> EXP_CRAFTING_UNIT = block(
             "Expanded Crafting Unit",
             "exp_crafting_unit",

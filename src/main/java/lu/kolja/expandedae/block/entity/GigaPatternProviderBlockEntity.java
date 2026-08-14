@@ -9,7 +9,6 @@ import appeng.menu.locator.MenuLocator;
 import lu.kolja.expandedae.block.block.GigaPatternProviderBlock;
 import lu.kolja.expandedae.definition.ExpBlocks;
 import lu.kolja.expandedae.definition.ExpMenus;
-import lu.kolja.expandedae.menu.GigaPatternProviderMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

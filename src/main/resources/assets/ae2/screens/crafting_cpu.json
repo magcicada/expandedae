@@ -1,4 +1,6 @@
 {
+  "$schema": "schema.json",
+  "includes": ["common/common.json"],
   "background": {
     "texture": "guis/craftingcpu.png",
     "srcRect": [0, 0, 238, 184]
@@ -23,6 +25,12 @@
       "top": 19,
       "width": 12,
       "height": 137
+    },
+    "searchField": {
+      "left": 144,
+      "top": 4,
+      "width": 69,
+      "height": 12
     }
   }
 }

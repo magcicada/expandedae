@@ -38,8 +38,8 @@ public abstract class MixinCraftingCPUMenu extends AEBaseMenu implements IHighli
             method = "<init>",
             at = @At("RETURN")
     )
-    private void init(CallbackInfo ci) {
-        //registerClientAction("highlightStack", AEKey.class, this::eae$highlight);
+    private void init(MenuType<?> menuType, int id, Inventory ip, Object te, CallbackInfo ci) {
+        registerClientAction("highlightStack", AEKey.class, this::eae$highlight);
     }
 
     @Unique

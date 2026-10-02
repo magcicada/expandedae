@@ -7,7 +7,11 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(value = StyleManager.class, remap = false)
 public class MixinStyleManager {
-    @ModifyVariable(method = "loadStyleDoc", at = @At("HEAD"), argsOnly = true)
+    @ModifyVariable(
+            method = "loadStyleDoc",
+            at = @At(value = "LOAD", ordinal = 0),
+            argsOnly = true
+    )
     private static String loadStyleDocHooks(String path) {
         if (path.contains("wireless_pattern_encoding_terminal.json")) {
             return "/screens/wtlib/modify_wireless_pattern_encoding_terminal.json";

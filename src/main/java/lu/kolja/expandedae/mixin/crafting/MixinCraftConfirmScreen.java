@@ -56,7 +56,7 @@ public class MixinCraftConfirmScreen extends AEBaseScreen<CraftConfirmMenu> impl
 
     @Inject(
             method = "<init>",
-            at = @At("TAIL")
+            at = @At("RETURN")
     )
     private void init(CraftConfirmMenu menu, Inventory playerInventory, Component title, ScreenStyle style, CallbackInfo ci) {
         ScreenStyleHelper.addWidgetIfAbsent(style, "searchField", widget -> {
@@ -76,7 +76,7 @@ public class MixinCraftConfirmScreen extends AEBaseScreen<CraftConfirmMenu> impl
 
     @Inject(
             method = "updateBeforeRender",
-            at = @At("TAIL")
+            at = @At("RETURN")
     )
     private void updateBeforeRender(CallbackInfo ci) {
         if (this.menu.getPlan() == null) return;

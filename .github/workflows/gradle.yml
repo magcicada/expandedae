@@ -3,9 +3,9 @@ name: Build
 on:
   workflow_dispatch:
   push:
-    branches: [ "forge/1.20.1" ]
+    branches: [ "new" ]
   pull_request:
-    branches: [ "forge/1.20.1" ]
+    branches: [ "new" ]
 
 permissions:
   contents: read
